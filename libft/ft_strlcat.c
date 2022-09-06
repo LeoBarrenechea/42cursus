@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 10:29:00 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/06 16:23:12 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/06 17:30:59 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/06 18:16:52 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//  #include <stdio.h>
-//  #include <string.h>
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
 size_t	ft_strlen(const char *arg)
 {
@@ -28,9 +28,33 @@ size_t	ft_strlen(const char *arg)
 	return (size);
 }
 
-// int	main(void)
-// {
-// 	char	arg[] = "\0";
-// 	printf("%lu\n", ft_strlen(arg));
-// 	printf("%lu\n", strlen(arg));
-// }
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	a;
+
+	if (!dst || !src)
+		return (0);
+	i = 0;
+	a = 0;
+	if (dstsize != 0)
+	{
+		while (src[a] != '\0' && i < (dstsize - 1))
+		{
+			dst[i] = src[a];
+			i++;
+			a++;
+		}
+		return (dstsize);
+	}
+	return (a);
+}
+
+int	main (void)
+{
+	char dst[] = "hola ";
+	char src[] = "a todos!";
+
+	ft_strlcat(dst, src, 4);
+	printf("%s %s", dst, src);
+}
