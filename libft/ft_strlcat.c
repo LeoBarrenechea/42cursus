@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 17:30:59 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/06 18:16:52 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/06 18:24:52 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,15 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	a;
-
+	size_t	src_len;
+	size_t	dst_len;
+	
 	if (!dst || !src)
 		return (0);
 	i = 0;
-	a = 0;
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	a = dst_len;
 	if (dstsize != 0)
 	{
 		while (src[a] != '\0' && i < (dstsize - 1))
