@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 10:29:00 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/07 18:47:21 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/08 17:10:26 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/08 18:15:25 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//  #include <stdio.h>
-//  #include <string.h>
 #include "libft.h"
+// #include <stdio.h>
+// #include <string.h>
 
-size_t	ft_strlen(const char *arg)
+char	*ft_strrchr(const char *str, int c)
 {
-	size_t	size;
+	int	a;
 
-	size = 0;
-	if (arg[size] == 0)
-		return (0);
-	while (arg[size])
-		size++;
-	return (size);
+	a = 0;
+	while (str[a])
+		a++;
+	while (0 <= a)
+	{
+		if (str[a] == (char)c)
+			return ((char *)str + a);
+		a--;
+	}
+	return (NULL);
 }
 
 // int	main(void)
 // {
-// 	char	arg[] = "\0";
-// 	printf("%lu\n", ft_strlen(arg));
-// 	printf("%lu\n", strlen(arg));
+// 	printf("%s", ft_strrchr("con topo el respeto", 'i'));
 // }

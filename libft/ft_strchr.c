@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 17:30:59 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/07 20:33:37 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/07 21:11:08 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/08 20:28:59 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,24 @@
 #include <stdio.h>
 #include <string.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strchr(const char *str, int c)
 {
-	size_t	i;
-	size_t	a;
+	int	i;
 
 	i = 0;
-	a = 0;
-	if (!dst || !src)
-		return (0);
-	while (dst[i] != '\0')
-		i++;
-	while (src[a] != '\0' && i < dstsize)
+	while (str[i])
 	{
-		dst[i] = src[a];
+		if (str[i] == (char)c)
+			return ((char *)str + i);
 		i++;
-		a++;
 	}
-	return (i);
+	if (str[i] == c)
+		return ((char *)str + i);
+	return (0);
 }
 
-// int	main (void)
-// {
-// 	char dst[] = "hola como estais";
-// 	char src[] = "todos bien?";
-// 	unsigned int	n = 13;
-
-// 	ft_strlcat(dst, src, n);
-// 	printf("%s", "%s", dst, src);
-// }
+int	main(void)
+{
+	printf("%s\n", ft_strchr("teste", 'o'));
+	printf("%s", strchr("teste", 'o'));
+}

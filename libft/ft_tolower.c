@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 10:29:00 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/07 18:47:21 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/07 20:45:54 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/07 20:56:55 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//  #include <stdio.h>
-//  #include <string.h>
 #include "libft.h"
+// #include <ctype.h>
+// #include <stdio.h>
 
-size_t	ft_strlen(const char *arg)
+int	ft_tolower(int c)
 {
-	size_t	size;
-
-	size = 0;
-	if (arg[size] == 0)
-		return (0);
-	while (arg[size])
-		size++;
-	return (size);
+	if (65 <= c && c <= 90)
+		c += 32;
+	return (c);
 }
 
 // int	main(void)
 // {
-// 	char	arg[] = "\0";
-// 	printf("%lu\n", ft_strlen(arg));
-// 	printf("%lu\n", strlen(arg));
+// 	printf("%c", ft_tolower(65));
 // }
