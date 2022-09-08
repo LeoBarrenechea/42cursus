@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 13:12:10 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/07 21:53:19 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/08 20:44:40 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	i = 0;
 	if (dstsize != 0)
 	{
-		while (src[i] != '\0' && i < (dstsize - 1))
+		while (src[i] != '\0' && i < dstsize - 1)
 		{
 			dst[i] = src[i];
 			i++;
