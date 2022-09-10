@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 17:57:39 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/08 21:16:13 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/10 16:18:49 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 #endif
