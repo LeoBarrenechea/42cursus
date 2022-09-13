@@ -1,30 +1,43 @@
 #asigned names
 
 NAME = libft.a
-OBJECTS = *.o
+
+SRCS = ft_isalnum.c ft_isprint.c ft_memcmp.c \
+					ft_strlcat.c ft_strncmp.c ft_atoi.c ft_isalpha.c \
+					ft_memcpy.c ft_strchr.c ft_strlcpy.c ft_tolower.c \
+					ft_strnstr.c ft_bzero.c ft_isascii.c \
+					ft_memmove.c ft_strlen.c ft_strrchr.c \
+					ft_toupper.c ft_isdigit.c ft_memchr.c ft_memset.c
+
+RM = rm -f
+
 FLAGS = -Wall -Werror -Wextra
-CC = gcc -c $(FLAGS) *.c
-AR = ar -crs $(NAME) $(OBJECTS)
+
+CC = gcc $(FLAGS)
+
+OBJS = $(SRCS:.c=.o)
+
+AR = ar rcs
 
 #functions
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	$(AR)
+$(NAME): $(OBJS)
+	$(AR) $@ $^
 
-$(OBJECTS): *.c
-	$(CC)
+%.o: %.c
+	$(CC) -c -o $@ $<
 
 clean:
-	rm -f $(OBJECTS)
+	$(RM) $(OBJS)
 
-fclean:
-	rm -f $(NAME) $(OBJECTS)
+fclean: clean
+	$(RM) $(NAME)
 
 re: fclean all
 
-.phony: all clean fclean re
+.phony: all clean fclean re bonus
 
 
 	

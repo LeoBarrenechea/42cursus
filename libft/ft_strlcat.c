@@ -6,40 +6,28 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 17:30:59 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/07 20:33:37 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/12 20:38:31 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *restrict src, size_t dstsize)
 {
-	size_t	i;
-	size_t	a;
+	size_t			i;
+	size_t			dst_len;
+	size_t			src_len;
 
 	i = 0;
-	a = 0;
-	if (!dst || !src)
-		return (0);
-	while (dst[i] != '\0')
-		i++;
-	while (src[a] != '\0' && i < dstsize)
+	src_len = ft_strlen(src);
+	dst_len = ft_strlen(dst);
+	if (dstsize <= dst_len || dstsize == 0)
+		return (dstsize + src_len);
+	while (src[i] != '\0' && i < dstsize - dst_len - 1)
 	{
-		dst[i] = src[a];
+		dst[dst_len + i] = src[i];
 		i++;
-		a++;
 	}
-	return (i);
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }
-
-// int	main (void)
-// {
-// 	char dst[] = "hola como estais";
-// 	char src[] = "todos bien?";
-// 	unsigned int	n = 13;
-
-// 	ft_strlcat(dst, src, n);
-// 	printf("%s", "%s", dst, src);
-// }

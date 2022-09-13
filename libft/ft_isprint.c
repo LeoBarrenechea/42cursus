@@ -6,12 +6,10 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 10:14:52 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/01 16:07:54 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/12 18:59:01 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <ctype.h>*/
 #include "libft.h"
 
 int	ft_isprint(int arg)
@@ -21,9 +19,3 @@ int	ft_isprint(int arg)
 	else
 		return (0);
 }
-
-/*int	main(void)
-{
-	printf("%d\n", ft_isprint(126));
-	printf("%d\n", isprint(126));
-}*/

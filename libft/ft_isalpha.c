@@ -6,12 +6,10 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 14:48:29 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/02 12:46:32 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/12 18:58:36 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <ctype.h>*/
 #include "libft.h"
 
 int	ft_isalpha(int arg)
@@ -21,9 +19,3 @@ int	ft_isalpha(int arg)
 	else
 		return (0);
 }
-
-/*int	main(void)
-{
-	printf("%d\n", isalpha(160));
-	printf("%d\n", ft_isalpha(160));
-}*/
