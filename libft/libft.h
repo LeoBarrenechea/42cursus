@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 18:44:55 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/13 16:37:58 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/14 21:12:54 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s1);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 #endif
