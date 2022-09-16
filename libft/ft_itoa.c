@@ -1,28 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 14:21:45 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/15 13:43:29 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/16 16:40:53 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/16 18:37:56 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+static int	ft_intcheck(int n)
+{
+	int	i;
+
+	i = 0;
+	if (n < 0 || !n)
+		i++;
+	while (n)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_itoa(int n)
 {
 	char	*str;
-	size_t	len;
+	int		i;
+	int		digit;
 
-	len = ft_strlen(s1);
-	str = (char *)malloc((len + 1) * sizeof(char));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	digit = ft_intcheck(n);
+	str = malloc(digit + 1);
 	if (!str)
 		return (0);
-	else
-		ft_memcpy(str, s1, ft_strlen(s1));
-	*(str + len) = '\0';
+	str[digit] = '\0';
+	i = 0;
+	if (n < 0)
+	{
+		str[0] = '-';
+		n = n * -1;
+		i++;
+	}
+	while (digit-- > i)
+	{
+		str[digit] = (n % 10) + '0';
+		n = n / 10;
+	}
 	return (str);
 }

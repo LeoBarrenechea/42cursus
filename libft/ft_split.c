@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 10:29:00 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/14 22:20:23 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/16 16:23:52 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/16 18:38:44 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+/* #include "libft.h"
+#include <stdio.h>
 
-size_t	ft_strlen(const char *arg)
+char	**ft_split(char const *s, char c)
 {
-	size_t	size;
-
-	size = 0;
-	if (arg[size] == 0)
-		return (0);
-	while (arg[size])
-		size++;
-	return (size);
-}
+	while (*s)
+	{
+		if (*s == c)
+	}
+} */
