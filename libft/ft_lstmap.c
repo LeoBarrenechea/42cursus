@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:48:32 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/21 15:48:54 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/21 15:50:30 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*head;
 
 	list = NULL;
-	if (!list && !f)
+	if (!list && !f && !del)
 		return (NULL);
 	head = NULL;
 	while (lst)
