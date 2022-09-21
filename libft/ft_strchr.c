@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:11:08 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/12 18:59:45 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/20 14:02:39 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ char	*ft_strchr(const char *str, int c)
 {
 	int	i;
 
-	if (!str)
-		return (NULL);
 	i = 0;
 	while (str[i])
 	{

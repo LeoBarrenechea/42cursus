@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 14:08:29 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/20 12:29:23 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/21 14:48:32 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/21 15:48:54 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	len;
+	t_list	*list;
+	t_list	*head;
 
-	if (!s1 || !set)
-		return (0);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	len = ft_strlen(s1);
-	while (len && ft_strchr(set, s1[len]))
-		len--;
-	return (ft_substr(s1, 0, len + 1));
+	list = NULL;
+	if (!list && !f)
+		return (NULL);
+	head = NULL;
+	while (lst)
+	{
+		list = ft_lstnew(f(lst->content));
+		ft_lstadd_back(&head, list);
+		lst = lst -> next;
+	}
+	return (head);
 }

@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 17:30:59 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/12 20:38:31 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:46:42 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ size_t	ft_strlcat(char *dst, const char *restrict src, size_t dstsize)
 	i = 0;
 	src_len = ft_strlen(src);
 	dst_len = ft_strlen(dst);
+	i = dst_len;
 	if (dstsize <= dst_len || dstsize == 0)
 		return (dstsize + src_len);
-	while (src[i] != '\0' && i < dstsize - dst_len - 1)
+	while (*src && dst_len < dstsize - 1)
 	{
-		dst[dst_len + i] = src[i];
-		i++;
+		*(dst + dst_len) = *src++;
+		dst_len++;
 	}
-	dst[dst_len + i] = '\0';
-	return (dst_len + src_len);
+	*(dst + dst_len) = '\0';
+	return (i + src_len);
 }
