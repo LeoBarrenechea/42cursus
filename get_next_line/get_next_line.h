@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 14:08:29 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/20 12:29:23 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/23 16:13:55 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/23 18:33:44 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFFER_SIZE
 
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	size_t	len;
+# include <unistd.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <stdio.h>
 
-	if (!s1 || !set)
-		return (0);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	len = ft_strlen(s1);
-	while (len && ft_strchr(set, s1[len]))
-		len--;
-	return (ft_substr(s1, 0, len + 1));
-}
+char	*ft_strdup(const char *s1);
+char	**ft_split(char const *s, char c);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*get_next_line(int fd);
+
+#endif
