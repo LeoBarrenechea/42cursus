@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 18:44:55 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/19 11:00:11 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/20 07:46:20 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 char	*ft_itoa(int n);
 char	*ft_strdup(const char *s1);
-//char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
