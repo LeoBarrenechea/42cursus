@@ -5,7 +5,7 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 16:19:12 by lbarrene          #+#    #+#             */
+/*   Created: 2022/09/23 1	º6:19:12 by lbarrene          #+#    #+#             */
 /*   Updated: 2022/09/23 16:37:40 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -27,33 +27,23 @@ char	*ft_strdup(const char *s1)
 	return (str);
 }
 
-char	**ft_split(char const *s, char c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int		j;
-	int		i;
-	int		slen;
-	int		strt;
-	char	**split;
+	size_t	i;
+	size_t	src_len;
 
-	j = 0;
-	i = -1;
-	strt = i;
-	slen = ft_strlen(s);
-	split = (char **)malloc(sizeof(char *) * (count_string(s, c) + 1));
-	if (!split)
-		return (NULL);
-	while (++i <= slen)
+	src_len = ft_strlen(src);
+	i = 0;
+	if (dstsize > 0)
 	{
-		if (s[i] != c && strt < 0)
-			strt = i;
-		else if (0 <= strt && (s[i] == c || i == slen))
+		while (src[i] != '\0' && i < dstsize - 1)
 		{
-			split[j++] = ft_substr(s, strt, i - strt);
-			strt = -1;
+			dst[i] = src[i];
+			i++;
 		}
+		dst[i] = '\0';
 	}
-	split[j] = NULL;
-	return (split);
+	return (src_len);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)

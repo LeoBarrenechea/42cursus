@@ -6,32 +6,48 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:19:17 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/23 18:33:36 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/26 00:17:48 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*read_fd(int fd)
+static char	*read_fd(int fd, char *saved)
 {
-	static char		*line;
-	static size_t	count;
+	char	*buff;
+	int		bytes;
+	buff = malloc(BUFFER_SIZE + 1 * (sizeof(char)));
+	if (!buff)
+		return (NULL);
+	while (!ft_strrchr(saved, '\n') || bytes > 0)
+	{
+		bytes = read(fd, buff, BUFFER_SIZE);
+		if (bytes == -1)
+		{
+			free(buff);
+			return (NULL);
+		}
+		buff[bytes] = '\0';
+		saved = ft_strjoin(saved, buff);
 
-	count = BUFFER_SIZE;
-	while (0 <= --count && fd != '\n')
-		read(fd, ft_strdup(line), sizeof(char));
-	return (line);
-	return (0);
+	}
+	free(buff);
+	return (saved);
 }
-static int	count_lines(int count)
+static char	ft_lines(char *saved)
 {
-	static unsigned int	numbytes;
-	static char			*saved;
-	static size_t		buffer;
-	ft_strdup(saved);
-	numbytes = read(fd, &saved, sizeof(char));
-	while (numbytes > 0 && BUFFER_SIZE < )
-	read(fd, &saved, numbytes);
+	int		i;
+	char	*s;
+
+	if (!saved)
+		return (NULL);
+	i = -1;
+	while (saved[i] && saved[i - 1] == '\n')
+	{
+		if (saved[i] == '\n')
+			ft_strdup(saved);
+
+	}
 }
 
 char	*get_next_line(int fd)
