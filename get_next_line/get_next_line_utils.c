@@ -5,12 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 1	º6:19:12 by lbarrene          #+#    #+#             */
+/*   Created: 2022/09/23 1	º6:19:12 by lbarrene          #+#    #+#          */
 /*   Updated: 2022/09/23 16:37:40 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+size_t	ft_strlen(const char *arg)
+{
+	size_t	size;
+
+	size = 0;
+	if (arg[size] == 0)
+		return (0);
+	while (arg[size])
+		size++;
+	return (size);
+}
+
+char	*ft_strrchr(const char *str, int c)
+{
+	int	a;
+
+	a = 0;
+	while (str[a])
+		a++;
+	while (0 <= a)
+	{
+		if (str[a] == (char)c)
+			return ((char *)str + a);
+		a--;
+	}
+	return (NULL);
+}
 
 char	*ft_strdup(const char *s1)
 {
@@ -27,23 +55,23 @@ char	*ft_strdup(const char *s1)
 	return (str);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
-	size_t	src_len;
+	size_t	a;
 
-	src_len = ft_strlen(src);
 	i = 0;
-	if (dstsize > 0)
+	a = 0;
+	if ((dst == src) || n == 0)
+		return (dst);
+	while (i < n)
 	{
-		while (src[i] != '\0' && i < dstsize - 1)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[a];
+		i++;
+		a++;
 	}
-	return (src_len);
+	n = '\0';
+	return (dst);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
