@@ -6,12 +6,12 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:13:55 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/26 13:29:55 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:04:50 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-# define BUFFER_SIZE 1000
+# define BUFFER_SIZE 10
 # define GET_NEXT_LINE_H
 
 # include <unistd.h>
