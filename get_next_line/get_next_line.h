@@ -6,17 +6,16 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:13:55 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/27 15:04:50 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:08:48 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-# define BUFFER_SIZE 10
 # define GET_NEXT_LINE_H
 
 # include <unistd.h>
 # include <stddef.h>
-//# include <limits.h>
+# include <limits.h>
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
