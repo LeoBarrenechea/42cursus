@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:19:17 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/30 17:30:46 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/09/30 17:39:12 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	*read_fd(int fd, char *save)
 
 char	*get_next_line(int fd)
 {
-	char	*save;
+	static char	*save;
 	char		*line;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
