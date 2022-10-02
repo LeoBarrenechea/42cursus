@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 23:21:46 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/01 23:47:16 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/10/02 21:25:17 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ char	*read_fd(int fd, char *save)
 			free(buff);
 			buff = NULL;
 		}
+		buff[bytes] = '\0';
 		save = ft_strjoin(save, buff);
 	}
 	free(buff);
@@ -85,10 +86,10 @@ char	*read_fd(int fd, char *save)
 
 char	*get_next_line(int fd)
 {
-	static char	*save[20];
+	static char	*save[300];
 	char		*line;
 
-	if (BUFFER_SIZE <= 0 || fd < 0)
+	if (BUFFER_SIZE <= 0 || fd < 0 || fd > 300)
 		return (0);
 	save[fd] = read_fd(fd, save[fd]);
 	if (!save[fd])
