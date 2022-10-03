@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:19:17 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/01 16:23:49 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/10/03 18:00:56 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ char	*get_lines(char *line)
 		return (NULL);
 	while (line[i] && line[i] != '\n')
 		i++;
-	str = (char *)malloc(i + 2);
+	if (line[i] == '\n')
+		i++;
+	str = (char *)malloc(i + 1);
 	i = 0;
 	while (line[i] && line[i] != '\n')
 	{
@@ -45,14 +47,14 @@ char	*save_next_line(char *lines)
 
 	i = 0;
 	if (!lines[i])
+	{
+		free(lines);
 		return (0);
+	}
 	while (lines[i] && lines[i] != '\n')
 		i++;
 	if (lines[i] == '\n')
 		i++;
-	save = (char *)malloc(ft_strlen(lines) - i + 1);
-	if (!save)
-		return (0);
 	save = ft_strdup(lines + i);
 	free(lines);
 	return (save);
@@ -67,16 +69,18 @@ char	*read_fd(int fd, char *save)
 		save = ft_strdup("");
 	bytes = 1;
 	buff = (char *)malloc(BUFFER_SIZE + 1);
-	while (bytes > 0)
+	while (!ft_strrchr(save, '\n') && bytes != 0)
 	{
 		bytes = read(fd, buff, BUFFER_SIZE);
 		if (bytes == 0)
 			break ;
 		if (bytes < 0)
 		{
+			free(save);
 			free(buff);
-			buff = NULL;
+			return (0);
 		}
+		buff[bytes] = '\0';
 		save = ft_strjoin(save, buff);
 	}
 	free(buff);
@@ -88,7 +92,7 @@ char	*get_next_line(int fd)
 	static char	*save;
 	char		*line;
 
-	if (BUFFER_SIZE <= 0 || fd < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	save = read_fd(fd, save);
 	if (!save)

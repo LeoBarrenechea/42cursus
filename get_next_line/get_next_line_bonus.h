@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 23:20:32 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/02 21:24:50 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:48:36 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ char	*save_next_line(char *lines);
 char	*get_lines(char *line);
 
 /*utils*/
-char		*ft_strdup(const char *s1);
-size_t		ft_strlen(const char *arg);
-char		*ft_strjoin(char const *s1, char const *s2);
-void		*ft_memcpy(void *dst, const void *src, size_t n);
+char	*ft_strdup(const char *s1);
+size_t	ft_strlen(const char *arg);
+char	*ft_strrchr(const char *str, int c);
+char	*ft_strjoin(char const *s1, char const *s2);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 
 #endif

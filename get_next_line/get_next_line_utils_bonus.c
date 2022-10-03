@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 23:24:11 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/01 23:24:23 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:50:11 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,22 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[i])
 		str[a++] = s2[i++];
 	str[a] = '\0';
+	free((void *)s1);
 	return (str);
+}
+
+char	*ft_strrchr(const char *str, int c)
+{
+	int	a;
+
+	a = 0;
+	while (str[a])
+		a++;
+	while (0 <= a)
+	{
+		if (str[a] == (char)c)
+			return ((char *)str + a);
+		a--;
+	}
+	return (NULL);
 }
