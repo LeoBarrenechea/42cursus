@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_dec.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 15:10:46 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/11 13:17:55 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/06 10:58:50 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/12 18:59:31 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	print_dec(int dec)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int		num;
-	char	*str;
+	size_t			i;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	str = ft_itoa(dec);
-	num = ft_atoi(str);
-	ft_putnbr_fd(num, 1);
-	return (num);
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	if (dst == src)
+		return (dst);
+	if (s < d)
+	{
+		while (len--)
+			*(d + len) = *(s + len);
+		return (dst);
+	}
+	i = 0;
+	while (len--)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dst);
 }

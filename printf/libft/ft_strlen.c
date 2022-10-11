@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_dec.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 15:10:46 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/11 13:17:55 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/08/31 10:29:00 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/14 22:20:23 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	print_dec(int dec)
+size_t	ft_strlen(const char *arg)
 {
-	int		num;
-	char	*str;
+	size_t	size;
 
-	str = ft_itoa(dec);
-	num = ft_atoi(str);
-	ft_putnbr_fd(num, 1);
-	return (num);
+	size = 0;
+	if (arg[size] == 0)
+		return (0);
+	while (arg[size])
+		size++;
+	return (size);
 }

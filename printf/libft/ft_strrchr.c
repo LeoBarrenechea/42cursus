@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_dec.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 15:10:46 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/11 13:17:55 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/08 17:10:26 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/30 14:17:24 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	print_dec(int dec)
+char	*ft_strrchr(const char *str, int c)
 {
-	int		num;
-	char	*str;
+	int	a;
 
-	str = ft_itoa(dec);
-	num = ft_atoi(str);
-	ft_putnbr_fd(num, 1);
-	return (num);
+	a = 0;
+	while (str[a])
+		a++;
+	while (0 <= a)
+	{
+		if (str[a] == (char)c)
+			return ((char *)str + a);
+		a--;
+	}
+	return (NULL);
 }

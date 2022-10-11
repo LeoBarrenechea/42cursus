@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_dec.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 15:10:46 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/11 13:17:55 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/22 12:07:43 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/22 12:07:45 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	print_dec(int dec)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int		num;
-	char	*str;
+	t_list	*p;
 
-	str = ft_itoa(dec);
-	num = ft_atoi(str);
-	ft_putnbr_fd(num, 1);
-	return (num);
+	while (*lst)
+	{
+		p = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = p;
+	}
+	lst = NULL;
 }

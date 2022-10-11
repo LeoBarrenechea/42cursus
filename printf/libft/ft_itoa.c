@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:06:39 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/07 17:16:29 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/16 16:40:53 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/10/07 17:16:19 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	ft_intcheck(int n)
 {
@@ -31,8 +31,10 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 	long	i;
-	long	digit;
+	long		digit;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	digit = ft_intcheck(n);
 	str = malloc(digit + 1);
 	if (!str)

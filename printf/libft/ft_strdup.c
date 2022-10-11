@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_dec.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 15:10:46 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/11 13:17:55 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/13 14:21:45 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/15 13:43:29 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	print_dec(int dec)
+char	*ft_strdup(const char *s1)
 {
-	int		num;
 	char	*str;
+	size_t	len;
 
-	str = ft_itoa(dec);
-	num = ft_atoi(str);
-	ft_putnbr_fd(num, 1);
-	return (num);
+	len = ft_strlen(s1);
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (0);
+	else
+		ft_memcpy(str, s1, ft_strlen(s1));
+	*(str + len) = '\0';
+	return (str);
 }

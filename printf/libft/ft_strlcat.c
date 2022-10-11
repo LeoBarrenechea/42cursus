@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char_str.c                                   :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:26:28 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/11 13:40:45 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/06 17:30:59 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/20 13:46:42 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_char_str(char *arg)
+size_t	ft_strlcat(char *dst, const char *restrict src, size_t dstsize)
 {
-	int	i;
+	size_t			i;
+	size_t			dst_len;
+	size_t			src_len;
 
 	i = 0;
-	while (arg[i])
+	src_len = ft_strlen(src);
+	dst_len = ft_strlen(dst);
+	i = dst_len;
+	if (dstsize <= dst_len || dstsize == 0)
+		return (dstsize + src_len);
+	while (*src && dst_len < dstsize - 1)
 	{
-		write(1, &arg[i], 1);
-		i++;
+		*(dst + dst_len) = *src++;
+		dst_len++;
 	}
-	return (0);
+	*(dst + dst_len) = '\0';
+	return (i + src_len);
 }

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_dec.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 15:10:46 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/11 13:17:55 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/08 20:54:02 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/13 18:18:26 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	print_dec(int dec)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int		num;
-	char	*str;
+	unsigned char	*str1;
+	unsigned char	*str2;
+	size_t			a;
 
-	str = ft_itoa(dec);
-	num = ft_atoi(str);
-	ft_putnbr_fd(num, 1);
-	return (num);
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	if (!n)
+		return (0);
+	a = 0;
+	while (str1[a] == str2[a] && a < n - 1)
+		a++;
+	return (str1[a] - str2[a]);
 }

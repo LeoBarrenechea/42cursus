@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_dec.c                                        :+:      :+:    :+:   */
+/*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 15:10:46 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/11 13:17:55 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/10/11 12:00:13 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/10/11 12:33:35 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft/libft.h"
+#include "ft_printf.h"
 
-int	print_dec(int dec)
+int	print_hex(unsigned long int num, char c, int fd)
 {
-	int		num;
-	char	*str;
+	int	long_n;
 
-	str = ft_itoa(dec);
-	num = ft_atoi(str);
-	ft_putnbr_fd(num, 1);
-	return (num);
+	long_n = 1;
+	if (c == 'p' || c == 'x')
+	{
+		if (16 <= num)
+			long_n = long_n + print_hex(num / 16, c, fd);
+		ft_putchar_fd("0123456789abcdef"[num % 16], fd);
+	}
+	else if (c == 'X')
+	{
+		if (16 <= num)
+			long_n = long_n + print_hex(num / 16, c, fd);
+		ft_putchar_fd("0123456789ABCDEF"[num % 16], fd);
+	}
+	return (long_n);
 }
