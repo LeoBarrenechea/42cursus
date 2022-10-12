@@ -6,14 +6,14 @@
 #    By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 12:55:23 by lbarrene          #+#    #+#              #
-#    Updated: 2022/10/12 16:11:16 by lbarrene         ###   ########.fr        #
+#    Updated: 2022/10/12 16:41:12 by lbarrene         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRCS = ft_printf.c ft_putchar.c ft_putnbr_unsig.c \
-	   ft_putnbr.c my_utils.c print_hex.c print_str.c
+	   ft_putnbr.c print_hex.c print_str.c
 	   
 RM = rm -f
 
