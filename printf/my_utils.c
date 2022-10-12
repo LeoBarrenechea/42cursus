@@ -1,16 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   my_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 16:40:53 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/07 17:16:19 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/10/12 14:09:35 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/10/12 14:13:22 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
+
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	sign;
+	int	num;
+
+	sign = 1;
+	num = 0;
+	i = 0;
+	while ((str[i] <= 13 && 9 <= str[i]) || (str[i] == 32))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while ((str[i] <= '9' && '0' <= str[i]))
+	{
+		num = (num * 10) + str[i] - 48;
+		i++;
+	}
+	return (num * sign);
+}
 
 static int	ft_intcheck(int n)
 {
@@ -31,10 +56,8 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 	long	i;
-	long		digit;
+	long	digit;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	digit = ft_intcheck(n);
 	str = malloc(digit + 1);
 	if (!str)

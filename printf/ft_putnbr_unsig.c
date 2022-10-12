@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_unsig.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/10 17:45:43 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/13 13:10:44 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/10/12 14:50:16 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/10/12 16:18:18 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_atoi(const char *str)
+int	ft_putnbr_unsig(unsigned int num)
 {
-	int	i;
-	int	sign;
-	int	num;
+	unsigned int	long_n;
 
-	sign = 1;
-	num = 0;
-	i = 0;
-	while ((str[i] <= 13 && 9 <= str[i]) || (str[i] == 32))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	long_n = 0;
+	if (10 <= num)
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		long_n += ft_putnbr_unsig(num / 10);
 	}
-	while ((str[i] <= '9' && '0' <= str[i]))
-	{
-		num = (num * 10) + str[i] - 48;
-		i++;
-	}
-	return (num * sign);
+	long_n += ft_putchar((num % 10) + 48);
+	return (long_n);
 }
