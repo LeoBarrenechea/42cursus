@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:04:24 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/07 17:30:29 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/10/10 09:22:49 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdio.h>
-# include "../libft/libft.h"
 
 int		ft_printf(char const *arg, ...);
 char	print_char_str(char *arg);

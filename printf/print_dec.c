@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:10:46 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/07 17:32:28 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:45:19 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,5 @@ int	print_dec(int dec)
 
 	str = ft_itoa(dec);
 	num = ft_atoi(str);
-
 	return (num);
-}
-
-int	main(void)
-{
-	int	str;
-
-	str = 5444;
-	print_dec(str);
-	printf("\n%i", str);
-	return (0);
 }
