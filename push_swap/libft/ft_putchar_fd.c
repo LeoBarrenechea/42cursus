@@ -1,13 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 17:55:40 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/26 17:55:50 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/16 18:34:34 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/18 20:26:58 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
+#include <stdio.h>
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write (fd, &c, 1);
+	return ((void)0);
+}
