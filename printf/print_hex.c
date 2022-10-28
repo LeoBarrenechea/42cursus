@@ -1,54 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:06:39 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/07 17:16:29 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/10/11 12:00:13 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/10/12 16:30:50 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_intcheck(int n)
+int	print_hex(unsigned long int num, char c)
 {
-	int	i;
+	int	long_n;
 
-	i = 0;
-	if (n < 0 || !n)
-		i++;
-	while (n)
+	long_n = 0;
+	if (c == 'p' || c == 'x')
 	{
-		n = n / 10;
-		i++;
+		if (16 <= num)
+			long_n += print_hex(num / 16, c);
+		long_n += ft_putchar("0123456789abcdef"[num % 16]);
 	}
-	return (i);
-}
-
-char	*ft_itoa(int n)
-{
-	char	*str;
-	long	i;
-	long	digit;
-
-	digit = ft_intcheck(n);
-	str = malloc(digit + 1);
-	if (!str)
-		return (0);
-	str[digit] = '\0';
-	i = 0;
-	if (n < 0)
+	else if (c == 'X')
 	{
-		str[0] = '-';
-		n = n * -1;
-		i++;
+		if (16 <= num)
+			long_n += print_hex(num / 16, c);
+		long_n += ft_putchar("0123456789ABCDEF"[num % 16]);
 	}
-	while (digit-- > i)
-	{
-		str[digit] = (n % 10) + '0';
-		n = n / 10;
-	}
-	return (str);
+	return (long_n);
 }

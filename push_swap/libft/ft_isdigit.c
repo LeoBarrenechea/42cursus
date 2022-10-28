@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 20:29:18 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/29 23:32:10 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/08/30 16:26:05 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/12 19:00:47 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_isdigit(int arg)
 {
-	size_t	i;
-	size_t	a;
-	char	*str;
-
-	str = (char *)malloc(sizeof(*s1) * ((size_t)s1 + (size_t)s2 + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	a = 0;
-	while (s1[i])
-		str[a++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		str[a++] = s2[i++];
-	str[a] = '\0';
-	return (str);
+	if (arg <= '9' && '0' <= arg)
+		return (1);
+	else
+		return (0);
 }

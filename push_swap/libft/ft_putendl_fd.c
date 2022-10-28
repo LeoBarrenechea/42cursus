@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:24:22 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/07 17:24:43 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/18 18:26:39 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/18 20:27:02 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_atoi(const char *str)
+void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
-	int	sign;
-	int	num;
 
-	sign = 1;
-	num = 0;
 	i = 0;
-	while ((str[i] <= 13 && 9 <= str[i]) || (str[i] == 32))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while ((str[i] <= '9' && '0' <= str[i]))
-	{
-		num = (num * 10) + str[i] - 48;
-		i++;
-	}
-	return (num * sign);
+	while (s[i] != '\0')
+		write(fd, &s[i++], 1);
+	write (fd, "\n", 1);
+	return ((void)0);
 }

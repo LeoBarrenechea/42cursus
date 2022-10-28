@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_unsig.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 20:29:18 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/29 23:32:10 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/10/12 14:50:16 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/10/22 08:21:21 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_putnbr_unsig(unsigned int num)
 {
-	size_t	i;
-	size_t	a;
-	char	*str;
+	unsigned int	long_n;
 
-	str = (char *)malloc(sizeof(*s1) * ((size_t)s1 + (size_t)s2 + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	a = 0;
-	while (s1[i])
-		str[a++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		str[a++] = s2[i++];
-	str[a] = '\0';
-	return (str);
+	long_n = 0;
+	if (10 <= num)
+	{
+		long_n += ft_putnbr_unsig(num / 10);
+	}
+	long_n += ft_putchar((num % 10) + 48);
+	return (long_n);
 }

@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 14:04:24 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/22 08:19:12 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/10/21 14:13:22 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/10/22 09:32:47 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+/*librerys*/
 # include <unistd.h>
 # include <limits.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include "../libft/libft.h"
+# include <fcntl.h>
+# include "libft/libft.h"
 
-char	*ft_itoa(int n);
-int		ft_putnbr(int n);
-int		ft_putchar(char c);
-int		print_dec(int dec);
-int		print_str(char *arg);
-int		ft_atoi(const char *str);
-int		print_unsig(unsigned int num);
-int		ft_putnbr_unsig(unsigned int n);
-int		ft_printf(char const *arg, ...);
-int		print_hex(unsigned long int num, char c);
+/*struct*/
+typedef struct s_stak
+{
+	int				*num;
+	struct s_stak	*next;
+}t_stak;
 
+/*functions*/
+void	ft_swap(int len, int *stk);
 #endif

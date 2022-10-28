@@ -1,33 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 20:29:18 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/09/29 23:32:10 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/16 16:40:53 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/18 20:26:34 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+static int	ft_intcheck(int n)
 {
-	size_t	i;
-	size_t	a;
-	char	*str;
+	int	i;
 
-	str = (char *)malloc(sizeof(*s1) * ((size_t)s1 + (size_t)s2 + 1));
+	i = 0;
+	if (n < 0 || !n)
+		i++;
+	while (n)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		i;
+	int		digit;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	digit = ft_intcheck(n);
+	str = malloc(digit + 1);
 	if (!str)
-		return (NULL);
+		return (0);
+	str[digit] = '\0';
 	i = 0;
-	a = 0;
-	while (s1[i])
-		str[a++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		str[a++] = s2[i++];
-	str[a] = '\0';
+	if (n < 0)
+	{
+		str[0] = '-';
+		n = n * -1;
+		i++;
+	}
+	while (digit-- > i)
+	{
+		str[digit] = (n % 10) + '0';
+		n = n / 10;
+	}
 	return (str);
 }

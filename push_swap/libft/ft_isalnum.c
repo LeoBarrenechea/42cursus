@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char_str.c                                   :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:26:28 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/07 17:26:31 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/09/12 18:56:53 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/09/12 18:56:59 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-char	print_char_str(char *arg)
+int	ft_isalnum(int arg)
 {
-	int	i;
-
-	i = 0;
-	while (arg[i])
-	{
-		write(1, &arg[i], 1);
-		i++;
-	}
-	return (0);
+	if ((48 <= arg && arg <= 57)
+		| (65 <= arg && arg <= 90)
+		| (97 <= arg && arg <= 122))
+		return (1);
+	else
+		return (0);
 }
