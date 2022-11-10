@@ -6,175 +6,11 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:57:53 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/10 16:14:13 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:22:15 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-size_t	ft_strlen(const char *arg)
-{
-	size_t	size;
-
-	size = 0;
-	if (arg[size] == 0)
-		return (0);
-	while (arg[size])
-		size++;
-	return (size);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-	size_t	src_len;
-
-	src_len = ft_strlen(src);
-	i = 0;
-	if (dstsize > 0)
-	{
-		while (src[i] != '\0' && i < dstsize - 1)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (src_len);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	size_t	i;
-	size_t	a;
-
-	i = 0;
-	a = 0;
-	if ((dst == src) || n == 0)
-		return (dst);
-	while (i < n)
-	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[a];
-		i++;
-		a++;
-	}
-	n = '\0';
-	return (dst);
-}
-
-char	*ft_strdup(const char *s1)
-{
-	char	*str;
-	size_t	len;
-
-	len = ft_strlen(s1);
-	str = (char *)malloc((len + 1) * sizeof(char));
-	if (!str)
-		return (0);
-	else
-		ft_memcpy(str, s1, ft_strlen(s1));
-	*(str + len) = '\0';
-	return (str);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char			*str;
-
-	if (!s)
-		return (0);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (len > ft_strlen(s))
-		len = ft_strlen(s);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (0);
-	ft_strlcpy(str, &s[start], len + 1);
-	return (str);
-}
-
-static int	count_string(const char *s, char c)
-{
-	int	i;
-	int	check;
-
-	i = 0;
-	check = 0;
-	while (*s)
-	{
-		if (*s != c && check == 0)
-		{
-			check = 1;
-			i++;
-		}
-		else if (*s == c)
-			check = 0;
-		s++;
-	}
-	return (i);
-}
-
-char	**ft_split(char *s, char c)
-{
-	int		j;
-	int		i;
-	int		slen;
-	int		strt;
-	char	**split;
-
-	j = 0;
-	i = -1;
-	strt = i;
-	slen = ft_strlen(s);
-	split = (char **)malloc(sizeof(char *) * (count_string(s, c) + 1));
-	if (!split)
-		return (NULL);
-	while (++i <= slen)
-	{
-		if (s[i] != c && strt < 0)
-			strt = i;
-		else if (0 <= strt && (s[i] == c || i == slen))
-		{
-			split[j++] = ft_substr(s, strt, i - strt);
-			strt = -1;
-		}
-	}
-	split[j] = NULL;
-	return (split);
-}
-
-t_stak	*ft_addnew(int arg)
-{
-	t_stak	*new;
-
-	new = (t_stak *)malloc(sizeof(t_stak));
-	if (new != NULL)
-	{
-		new -> num = arg;
-		new -> next = NULL;
-	}
-	return (new);
-}
-
-void	ft_insertend(t_head *peek, int arg)
-{
-	t_stak	*aux;
-	t_stak	*new;
-
-	new = ft_addnew(arg);
-	if (peek->peek == NULL)
-		peek->peek = new;
-	else
-	{
-		aux = peek->peek;
-		while (aux->next)
-			aux = aux->next;
-		aux->next = new;
-	}
-	peek->etail = new;
-	peek->len++;
-}
 
 int	ft_atoi(const char *str)
 {
@@ -201,20 +37,11 @@ int	ft_atoi(const char *str)
 	if (num <= INT_MIN || INT_MAX <= num)
 	{
 		write (1, "Error\n", 6);
-		free_stack(&peek);
+		exit (-1);
 	}
 	return (num * sign);
 }
 
-t_head	*ft_addheader(void)
-{
-	t_head	*peek;
-
-	peek = (t_head *)malloc(sizeof(t_head));
-	peek->len = 0;
-	peek->peek = NULL;
-	return (peek);
-}
 int	check_num(char *av)
 {
 	int	i;
@@ -229,7 +56,7 @@ int	check_num(char *av)
 
 void	arg_str(char **av, t_head *peek)
 {
-	 int	num;
+	int	num;
 
 	av = ft_split(*av, ' ');
 	while (*av)
@@ -240,13 +67,7 @@ void	arg_str(char **av, t_head *peek)
 	}
 }
 
-void	free_stack(void *list)
-{
-	list = NULL;
-	free(list);
-}
-
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	int		i;
 	t_head	*peek;
