@@ -1,32 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_r_rotate.c                                      :+:      :+:    :+:   */
+/*   ft_r_rotate_main.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 17:55:20 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/07 12:39:41 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:11:33 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_r_rotate(t_head *peek)
-{
-	t_stak	*aux;
-
-	if (peek->len > 1)
-	{
-		aux = peek->peek;
-		while (peek->peek->next->next)
-			peek->peek = peek->peek->next;
-		peek->etail = peek->peek;
-		peek->peek = peek->etail->next;
-		peek->etail->next = NULL;
-		peek->peek->next = aux;
-	}
-}
 
 int main(void)
 {

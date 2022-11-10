@@ -1,40 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_rotate_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/10 17:45:43 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/10 15:28:48 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/10/21 15:12:16 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/11/09 12:11:39 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_atoi(const char *str)
+int main(void)
 {
-	int	i;
-	int	sign;
-	int	num;
+	t_head	*peek;
+	int		i;
+	t_stak	*aux;
 
-	sign = 1;
-	num = 0;
+	peek = ft_addheader();
 	i = 0;
-	while ((str[i] <= 13 && 9 <= str[i]) || (str[i] == 32))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	int a[] = {50,4,5,8,9,3};
+	aux = peek->peek;
+	while (i <= 5)
 	{
-		if (str[i] == '-')
-			sign *= -1;
+		ft_insertend(peek, a[i]);
 		i++;
 	}
-	while ((str[i] <= '9' && '0' <= str[i]))
+	i = 0;
+	while (aux->next)
 	{
-		num = (num * 10) + str[i] - 48;
+		printf("[%i]  |  %d\n", i, aux->num);
+		aux = aux->next;
 		i++;
 	}
-	if (num <= INT_MIN || INT_MAX <= num)
-		return (NULL);
-	return (num * sign);
+	ft_rotate(peek);
+	i = 0;
+	while (peek->peek)
+	{
+		printf("[%i]  |  %d\n", i, peek->peek->num);
+		peek->peek = peek->peek->next;
+		i++;
+	}
 }

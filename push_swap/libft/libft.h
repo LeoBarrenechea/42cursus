@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 22:47:00 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/26 17:18:15 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:53:01 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
+# include ".././push_swap.h"
 
 typedef struct s_list
 {
