@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 16:23:52 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/25 19:00:32 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:22:22 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ char	**ft_split(char *s, char c)
 			split[j++] = ft_substr(s, strt, i - strt);
 			strt = -1;
 		}
+		free (*split);
 	}
 	split[j] = NULL;
 	return (split);

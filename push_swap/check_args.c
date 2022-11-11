@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:57:53 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/11 13:11:02 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:40:43 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	arg_str(char **av, t_head *peek)
 	while (*av)
 	{
 		num = ft_atoi(*av, peek);
+		free(av);
 		check_dup(peek, num);
 		ft_insertend(peek, num);
 		av++;
@@ -96,4 +97,5 @@ int	main(int ac, char **av)
 		peek->peek = peek->peek->next;
 		i++;
 	}
+	free_stack(peek);
 }
