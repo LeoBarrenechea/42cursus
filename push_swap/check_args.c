@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:57:53 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/11 11:39:12 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/11 13:02:29 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,19 @@ int	main(int ac, char **av)
 	t_head	*peek;
 
 	peek = ft_addheader();
-	if (ac == 2)
+	if (ac > 1)
 	{
-		if (av[1] && (check_num(av[1]) == 1))
-			arg_str(&av[1], peek);
-		else
+		i = 0;
+		while (av[++i])
 		{
-			write (1, "Error\n", 6);
-			free_stack(peek);
-			exit (-1);
+			if (av[i] && (check_num(av[i]) == 1))
+				arg_str(&av[i], peek);
+			else
+			{
+				write (1, "Error\n", 6);
+				free_stack(peek);
+				exit (-1);
+			}
 		}
 	}
 	else
