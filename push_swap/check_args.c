@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:57:53 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/11 13:02:29 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/11 13:11:02 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	arg_str(char **av, t_head *peek)
 	}
 }
 
-int	main(int ac, char **av)
+t_head	*check_args(int ac, char **av)
 {
 	int		i;
 	t_head	*peek;
@@ -64,8 +64,8 @@ int	main(int ac, char **av)
 	peek = ft_addheader();
 	if (ac > 1)
 	{
-		i = 0;
-		while (av[++i])
+		i = 1;
+		while (av[i])
 		{
 			if (av[i] && (check_num(av[i]) == 1))
 				arg_str(&av[i], peek);
@@ -75,10 +75,20 @@ int	main(int ac, char **av)
 				free_stack(peek);
 				exit (-1);
 			}
+			i++;
 		}
 	}
 	else
 		free_stack(peek);
+	return (peek);
+}
+
+int	main(int ac, char **av)
+{
+	int		i;
+	t_head	*peek;
+
+	peek = check_args(ac, av);
 	i = 0;
 	while (peek->peek)
 	{
