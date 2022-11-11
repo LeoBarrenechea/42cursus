@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 14:13:22 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/10 15:26:44 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/11 11:16:46 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_rotate(t_head *peek);
 /*struct functions*/
 t_stak	*ft_addnew(int arg);
 t_head	*ft_addheader(void);
-void	free_stack(void *peek);
+void	free_stack(t_head *peek);
 void	ft_insertend(t_head *peek, int arg);
 void	ft_insertinit(t_head *peek, int arg);
 

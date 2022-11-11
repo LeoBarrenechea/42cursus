@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 22:47:00 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/10 15:53:01 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/11 10:26:23 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		ft_isalpha(int arg);
 int		ft_isascii(int arg);
 int		ft_isdigit(int arg);
 int		ft_isprint(int arg);
-int		ft_atoi(const char *str);
+int		ft_atoi(const char *str, void *ptr);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 

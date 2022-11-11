@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:00:31 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/10 13:18:26 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/11 11:13:49 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_insertend(t_head *peek, int arg)
 	peek->len++;
 }
 
-void	free_stack(void *list)
+void	free_stack(t_head *list)
 {
-	free(&list);
+	free(list);
 }
