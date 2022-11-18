@@ -6,13 +6,21 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:45:43 by lbarrene          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/09/13 13:10:44 by lbarrene         ###   ########.fr       */
+=======
+/*   Updated: 2022/10/26 17:01:07 by lbarrene         ###   ########.fr       */
+>>>>>>> refs/remotes/origin/main
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+<<<<<<< HEAD
 int	ft_atoi(const char *str)
+=======
+int	ft_atoi(const char *str, t_head *peek)
+>>>>>>> refs/remotes/origin/main
 {
 	int	i;
 	int	sign;
@@ -34,5 +42,10 @@ int	ft_atoi(const char *str)
 		num = (num * 10) + str[i] - 48;
 		i++;
 	}
+<<<<<<< HEAD
+=======
+	if (INT_MIN <= num || num <= INT_MAX)
+		free_stack(peek);
+>>>>>>> refs/remotes/origin/main
 	return (num * sign);
 }

@@ -6,7 +6,11 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 16:23:52 by lbarrene          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/09/23 22:47:15 by lbarrene         ###   ########.fr       */
+=======
+/*   Updated: 2022/10/25 19:00:32 by lbarrene         ###   ########.fr       */
+>>>>>>> refs/remotes/origin/main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +37,11 @@ static int	count_string(const char *s, char c)
 	return (i);
 }
 
+<<<<<<< HEAD
 char	**ft_split(char const *s, char c)
+=======
+char	**ft_split(char *s, char c)
+>>>>>>> refs/remotes/origin/main
 {
 	int		j;
 	int		i;

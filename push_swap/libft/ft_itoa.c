@@ -6,7 +6,11 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 16:40:53 by lbarrene          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/09/18 20:26:34 by lbarrene         ###   ########.fr       */
+=======
+/*   Updated: 2022/10/07 17:16:19 by lbarrene         ###   ########.fr       */
+>>>>>>> refs/remotes/origin/main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +34,13 @@ static int	ft_intcheck(int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
+<<<<<<< HEAD
 	int		i;
 	int		digit;
+=======
+	long	i;
+	long		digit;
+>>>>>>> refs/remotes/origin/main
 
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
