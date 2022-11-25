@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:45:43 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/11 10:29:53 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/18 13:52:17 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 void	write_free(void *ptr)
 {
 	write (1, "Error\n", 6);
-	free_stack(ptr);
+	while (ptr)
+		free_stack(ptr, 1);
 	exit (-1);
 }
 
-int	ft_atoi(const char *str, void *ptr)
+int	ft_atoi(const char *str, t_head *ptr)
 {
 	int			i;
 	int			sign;

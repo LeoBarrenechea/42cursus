@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 14:13:22 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/11 17:48:48 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/25 17:46:40 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,15 @@
 # include <fcntl.h>
 # include "./libft/libft.h"
 
-/*struct*/
-typedef struct s_stak
-{
-	int				num;
-	struct s_stak	*next;
-}	t_stak;
-
-typedef struct s_head
-{
-	t_stak			*peek;
-	t_stak			*etail;
-	int				len;
-	int				smaller;
-	int				larger;
-}	t_head;
-
 /*push_swap functions*/
-void	ft_swap(t_head *peek);
-t_stak	*ft_push(t_head *peek, t_stak *b);
-void	ft_r_rotate(t_head *peek);
-void	ft_rotate(t_head *peek);
+void	ft_swap(t_list *list);
+t_list	*ft_push(t_list *from, t_list *to);
+void	ft_r_rotate(t_list *list);
+void	ft_rotate(t_list *list);
 
 /*struct functions*/
-t_stak	*ft_addnew(int arg);
-t_head	*ft_addheader(void);
-void	free_stack(t_head *peek, int i);
-void	ft_insertend(t_head *peek, int arg);
-void	ft_insertinit(t_head *peek, int arg);
+t_list	*ft_addnew(int arg);
+void	ft_insertend(t_list *list, int arg);
+void	ft_insertinit(t_list *list, int arg);
 
 #endif
