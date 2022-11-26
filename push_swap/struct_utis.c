@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:00:31 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/26 17:56:16 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:48:25 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,25 @@ void	ft_insertend(t_head *peek, int arg)
 	new = ft_addnew(arg);
 	if (peek->peek == NULL)
 		peek->peek = new;
-	aux = peek->peek;
-	while (aux->next)
-		aux = aux->next;
-	aux->next = new;
+	else
+	{
+		aux = peek->peek;
+		while (aux->next)
+			aux = aux->next;
+		aux->next = new;
+	}
+	peek->etail = new;
 	peek->len++;
 }
 
-void	free_stack(t_head *list)
+void	free_stack(t_head *list, int i)
 {
-	free(list);
+	t_stak	*del;
+
+	while (list->peek->next)
+	{
+		del = list->peek;
+		list->peek = list->peek->next;
+		free(del);
+	}	
 }
-
-
-
