@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 22:47:00 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/25 17:02:40 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/29 12:22:40 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ typedef struct s_list
 	int				num;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_head
+{
+	t_list	*peek;
+	t_list	*lstnum;
+	int		len;
+}			t_head;
 
 /*struct*/
 
@@ -65,9 +72,9 @@ int		ft_isalpha(int arg);
 int		ft_isascii(int arg);
 int		ft_isdigit(int arg);
 int		ft_isprint(int arg);
-int		ft_atoi(const char *str, t_head *peek);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+long	ft_atoi(const char *str);
 
 /*char*/
 

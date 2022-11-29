@@ -1,39 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   free_str_list_exit.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/10 17:45:43 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/29 12:47:58 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/11/29 11:02:04 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/11/29 11:15:43 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-long	ft_atoi(const char *str)
+void	write_error_exit(void)
 {
-	int			i;
-	int			sign;
-	long		num;
+	write (1, "Error\n", 1);
+	exit (-1);
+}
 
-	sign = 1;
-	num = 0;
-	i = 0;
-	while ((str[i] <= 13 && 9 <= str[i]) || (str[i] == 32))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+void	free_str_list_exit(t_head *list, char **str, int len)
+{
+	int		i;
+	t_list	*del;
+
+	if (str)
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		i = 0;
+		while (str[i])
+		{
+			free (str[i]);
+			i++;
+		}
+		free (str);
 	}
-	while ((str[i] <= '9' && '0' <= str[i]) || str[i] == 32)
+	if (list)
 	{
-		if (!(str[i] == 32))
-			num = (num * 10) + str[i] - 48;
-		i++;
+		while (list->peek)
+		{
+			del = list->peek;
+			list->peek = list->peek->next;
+			free (del);
+		}
+		free (list);
 	}
-	return (num * sign);
+	if (len == 0)
+		write_error_exit();
 }

@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:00:31 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/25 17:46:48 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:32:17 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ t_list	*ft_addnew(int arg)
 	return (new);
 }
 
-void	ft_insertend(t_list *head, int arg)
+void	ft_insertend(t_head *head, int arg)
 {
 	t_list	*aux;
 	t_list	*new;
 
-	aux = head;
+	aux = head->peek;
 	new = ft_addnew(arg);
 	if (aux == NULL)
 		aux = new;
@@ -41,21 +41,21 @@ void	ft_insertend(t_list *head, int arg)
 			aux = aux->next;
 		aux->next = new;
 	}
-	head = aux;
+	head->peek = aux;
+	head->len++;
+	head->lstnum = new;
 	free (new);
 	new = NULL;
 }
 
-void	free_list(t_list *list)
+t_head	*ft_addhead(void)
 {
-	t_list	*aux;
-	t_list	*del;
+	t_head	*peek;
 
-	while (list->next)
-	{
-		del = list;
-		aux = list->next;
-	}
-	free (del);
-	list = aux;
+	peek = (t_head *)malloc(sizeof(t_head));
+	if (!peek)
+		return (0);
+	peek->peek = NULL;
+	peek->len = 0;
+	return (peek);
 }
