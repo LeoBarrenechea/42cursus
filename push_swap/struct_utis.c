@@ -6,18 +6,18 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:00:31 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/11 17:48:25 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:06:42 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-t_stak	*ft_addnew(int arg)
+t_list	*ft_addnew(int arg)
 {
-	t_stak	*new;
+	t_list	*new;
 
-	new = (t_stak *)malloc(sizeof(t_stak));
+	new = (t_list *)malloc(sizeof(t_list));
 	if (new != NULL)
 	{
 		new -> num = arg;
@@ -26,53 +26,22 @@ t_stak	*ft_addnew(int arg)
 	return (new);
 }
 
- /* have to create stack a nd stack b*/
-t_head	*ft_addheader(void)
+void	ft_insertend(t_head *head, int arg)
 {
-	t_head	*peek;
+	t_list	*aux;
+	t_list	*new;
 
-	peek = (t_head *)malloc(sizeof(t_head));
-	peek->len = 0;
-	peek->peek = NULL;
-	return (peek);
-}
-
-void	ft_insertinit(t_head *peek, int arg)
-{
-	t_stak	*new;
-
+	aux = head;
 	new = ft_addnew(arg);
-	peek->peek = new;
-	peek->len++;
-}
-
-void	ft_insertend(t_head *peek, int arg)
-{
-	t_stak	*aux;
-	t_stak	*new;
-
-	new = ft_addnew(arg);
-	if (peek->peek == NULL)
-		peek->peek = new;
+	if (aux == NULL)
+		aux = new;
 	else
 	{
-		aux = peek->peek;
 		while (aux->next)
 			aux = aux->next;
 		aux->next = new;
 	}
-	peek->etail = new;
-	peek->len++;
-}
-
-void	free_stack(t_head *list, int i)
-{
-	t_stak	*del;
-
-	while (list->peek->next)
-	{
-		del = list->peek;
-		list->peek = list->peek->next;
-		free(del);
-	}	
+	head = aux;
+	free (new);
+	new = NULL;
 }
