@@ -6,19 +6,12 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:45:43 by lbarrene          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/11/19 00:16:58 by lbarrene         ###   ########.fr       */
-=======
-/*   Updated: 2022/11/18 13:52:17 by lbarrene         ###   ########.fr       */
->>>>>>> refs/remotes/origin/main
+/*   Updated: 2022/11/29 23:28:10 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-<<<<<<< HEAD
-int	ft_atoi(const char *str, t_head *peek)
-=======
 void	write_free(void *ptr)
 {
 	write (1, "Error\n", 6);
@@ -28,11 +21,10 @@ void	write_free(void *ptr)
 }
 
 int	ft_atoi(const char *str, t_head *ptr)
->>>>>>> refs/remotes/origin/main
 {
 	int			i;
 	int			sign;
-	long int	num;
+	long		num;
 
 	sign = 1;
 	num = 0;
@@ -45,12 +37,13 @@ int	ft_atoi(const char *str, t_head *ptr)
 			sign *= -1;
 		i++;
 	}
-	while ((str[i] <= '9' && '0' <= str[i]))
+	while ((str[i] <= '9' && '0' <= str[i]) || str[i] == 32)
 	{
-		num = (num * 10) + str[i] - 48;
+		if (!(str[i] == 32))
+			num = (num * 10) + str[i] - 48;
 		i++;
 	}
-	if (INT_MIN <= num || num <= INT_MAX)
-		free_stack(peek);
+	if (num <= INT_MIN || INT_MAX <= num)
+		write_free(ptr);
 	return (num * sign);
 }

@@ -6,9 +6,10 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 22:47:00 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/28 13:08:18 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/29 21:48:52 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 
 #ifndef LIBFT_H
@@ -25,11 +26,10 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct t_head
-{
+typedef struct s_head
 	t_list	*peek;
-	t_list	*lstnum;
 	int		len;
+	t_list	*lstnum;
 }			t_head;
 
 /*struct*/
@@ -76,6 +76,7 @@ int		ft_isprint(int arg);
 int		ft_atoi(const char *str, t_list *peek);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+long	ft_atoi(const char *str);
 
 /*char*/
 

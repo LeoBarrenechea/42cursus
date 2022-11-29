@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:09:36 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/28 11:37:10 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/29 21:47:33 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,44 +31,44 @@ t_list	*ft_push(t_list *from, t_list *to)
 	return (to);
 }
 
-void	ft_r_rotate(t_list *list)
+void	ft_r_rotate(t_head *list)
 {
 	t_list	*holder;
 	t_list	*aux;
-	if (list->next)
+
+	if (list->peek->next)
 	{
-		holder = list;
-		aux = list->next;
-		while (holder->next)
-			holder = holder->next;
-		holder->next = list;
-		holder->next->next = NULL;
-		list = aux;
+		aux = list;
+		while (aux->next->next)
+			aux = aux->next;
+		aux->next->next = list->peek;
+		list->peek = aux->next;
+		aux->next = NULL;
 	}
 }
 
-/* void	ft_rotate(t_listpeek
+void	ft_rotate(t_head *list)
 {
 	t_list	*aux;
 	t_list	*aux1;
 
-	ifpeepeek>next)
+	if (list->peek->next)
 	{
-		aux peepeek>next;
-		aux1 peepeek
-peepeek= aux;
+		aux = list->peek;
+		aux1 = list->peek->next;
+		list->peek = aux;
 		while (aux->next)
 			aux = aux->next;
 		aux->next = aux1;
 		aux->next->next = NULL;
-peek>etail = aux->next;
+		list->lstnum = aux->next;
 	}
 } */
 
 /* void	ft_swap(t_headpeek
 {
-	t_stak	*aux;
-	t_stak	*aux1;
+	t_list	*aux;
+	t_list	*aux1;
 
 	ifpeepeek>next)
 	{

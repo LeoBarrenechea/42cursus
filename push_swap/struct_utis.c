@@ -6,9 +6,10 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:00:31 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/28 13:06:42 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:20:54 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 #include <stdio.h>
@@ -31,17 +32,27 @@ void	ft_insertend(t_head *head, int arg)
 	t_list	*aux;
 	t_list	*new;
 
-	aux = head;
 	new = ft_addnew(arg);
-	if (aux == NULL)
-		aux = new;
+	if (head->peek == NULL)
+		head->peek = new;
 	else
 	{
+		aux = head->peek;
 		while (aux->next)
 			aux = aux->next;
 		aux->next = new;
 	}
-	head = aux;
-	free (new);
-	new = NULL;
+	head->len++;
+}
+
+t_head	*ft_addhead(void)
+{
+	t_head	*peek;
+
+	peek = (t_head *)malloc(sizeof(t_head));
+	if (!peek)
+		return (0);
+	peek->peek = NULL;
+	peek->len = 0;
+	return (peek);
 }
