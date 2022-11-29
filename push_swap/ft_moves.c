@@ -6,29 +6,28 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:09:36 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/29 21:47:33 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:58:29 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_push(t_list *from, t_list *to)
+void	ft_push(t_head *from, t_head *to, int num)
 {
 	t_list	*aux;
 
-	if (from->next)
-	{
-		if (!to)
-			to = ft_addnew(from->num);
-		else
-		{
-			aux = to;
-			to = from;
-			to->next = aux;
-		}
-		from = from->next;
-	}
-	return (to);
+	if (!from)
+		return (0);
+	aux = from->peek->next;
+	from->peek->next = to->peek;
+	to->peek = from->peek;
+	from->peek = aux;
+	from->len--;
+	to->len++;
+	if (num == 1)
+		write (1, "pb\n", 3);
+	else if (num == 0)
+		write (1, "pa\n", 3);
 }
 
 void	ft_r_rotate(t_head *list)
@@ -63,7 +62,7 @@ void	ft_rotate(t_head *list)
 		aux->next->next = NULL;
 		list->lstnum = aux->next;
 	}
-} */
+}
 
 /* void	ft_swap(t_headpeek
 {

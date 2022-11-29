@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 22:47:00 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/29 21:48:52 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:40:02 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
-/* # include "./push_swap/push_swap.h" */
+# include "../push_swap.h"
 
 typedef struct s_list
 {
@@ -27,9 +27,9 @@ typedef struct s_list
 }					t_list;
 
 typedef struct s_head
+{
 	t_list	*peek;
 	int		len;
-	t_list	*lstnum;
 }			t_head;
 
 /*struct*/
@@ -73,10 +73,9 @@ int		ft_isalpha(int arg);
 int		ft_isascii(int arg);
 int		ft_isdigit(int arg);
 int		ft_isprint(int arg);
-int		ft_atoi(const char *str, t_list *peek);
+int		ft_atoi(const char *str, t_head *ptr);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-long	ft_atoi(const char *str);
 
 /*char*/
 

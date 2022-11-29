@@ -6,19 +6,11 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:45:43 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/29 23:28:10 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:39:39 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	write_free(void *ptr)
-{
-	write (1, "Error\n", 6);
-	while (ptr)
-		free_stack(ptr, 1);
-	exit (-1);
-}
 
 int	ft_atoi(const char *str, t_head *ptr)
 {
@@ -44,6 +36,6 @@ int	ft_atoi(const char *str, t_head *ptr)
 		i++;
 	}
 	if (num <= INT_MIN || INT_MAX <= num)
-		write_free(ptr);
+		free_str_list_exit(ptr, 0, 0);
 	return (num * sign);
 }

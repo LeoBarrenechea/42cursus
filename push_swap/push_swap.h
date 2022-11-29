@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 14:13:22 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/29 21:46:31 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:40:57 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,16 @@
 
 /*push_swap functions*/
 void	ft_swap(t_head *list);
-t_list  *ft_push(t_head *from, t_head *to);
+void    ft_push(t_head *from, t_head *to);
 void	ft_r_rotate(t_head *list);
 void	ft_rotate(t_head *list);
 
 /*struct functions*/
 t_head	*ft_addhead(void);
 t_list	*ft_addnew(int arg);
-void	ft_insertend(t_list *list, int arg);
+void	write_error_exit(void);
+void	ft_insertend(t_head *list, int arg);
 void	ft_insertinit(t_list *list, int arg);
+void	free_str_list_exit(t_head *list, char **str, int len);
 
 #endif
