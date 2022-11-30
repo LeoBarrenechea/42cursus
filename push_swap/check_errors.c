@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 11:22:15 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/30 15:54:09 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/30 16:00:26 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	check_dup(t_head *list, char **av, int num)
 {
 	t_list	*checker;
-
+	
 	checker = list->peek;
 	while (checker)
 	{
