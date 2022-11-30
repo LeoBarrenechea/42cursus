@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 14:13:22 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/29 15:17:47 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/30 15:56:31 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,37 @@
 # include <stdio.h>
 # include <limits.h>
 # include <fcntl.h>
-# include "./libft/libft.h"
+
+/*stack struct*/
+typedef struct s_list
+{
+	int				num;
+	struct s_list	*next;
+}			t_list;
+
+typedef struct s_head
+{
+	t_list		*peek;
+	int			len;
+}			t_head;
+
+/*libft function*/
+int		ft_atoi(char *str, t_head *ptr);
+char	**ft_split(char const *s, char c, t_head *peek);
 
 /*push_swap functions*/
-void	ft_swap(t_list *list);
-t_list	*ft_push(t_list *from, t_list *to);
-void	ft_r_rotate(t_list *list);
-void	ft_rotate(t_list *list);
+void	arg_str(char **av, t_head *peek);
+void	free_str_list_exit(t_head *list, char **str, int len);
 
 /*struct functions*/
 t_head	*ft_addhead(void);
 t_list	*ft_addnew(int arg);
+void	ft_swap(t_head *list, int num);
+void	ft_rotate(t_head *list, int num);
+void	ft_r_rotate(t_head *list, int num);
+void	ft_push(t_head *from, t_head *to, int num);
 void	ft_insertend(t_head *list, int arg);
 void	ft_insertinit(t_list *list, int arg);
-void	free_str_list_exit(t_head *list, char **str, int len);
+void	check_dup(t_head *list, char **av, int num);
 
 #endif

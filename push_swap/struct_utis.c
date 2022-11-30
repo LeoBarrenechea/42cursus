@@ -6,12 +6,11 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:00:31 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/29 15:32:17 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/30 11:17:30 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 t_list	*ft_addnew(int arg)
 {
@@ -31,21 +30,17 @@ void	ft_insertend(t_head *head, int arg)
 	t_list	*aux;
 	t_list	*new;
 
-	aux = head->peek;
 	new = ft_addnew(arg);
-	if (aux == NULL)
-		aux = new;
+	if (head->peek == NULL)
+		head->peek = new;
 	else
 	{
+		aux = head->peek;
 		while (aux->next)
 			aux = aux->next;
 		aux->next = new;
 	}
-	head->peek = aux;
 	head->len++;
-	head->lstnum = new;
-	free (new);
-	new = NULL;
 }
 
 t_head	*ft_addhead(void)

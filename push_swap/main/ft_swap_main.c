@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 14:31:10 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/09 12:11:45 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/19 00:16:20 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,15 @@ int main(void)
 		peek->peek = peek->peek->next;
 		i++;
 	}
+}
+
+int main (void)
+{
+	int num[] = {1,2,3,4,5,6,7,8};
+	t_head	*peek;
+	t_stak	*list;
+	
+	ft_swap(peek, list, *num);
+	printf("%d", peek->peek);
+	printf("%d", list->next);
 }

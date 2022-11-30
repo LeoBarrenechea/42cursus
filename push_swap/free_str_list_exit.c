@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 11:02:04 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/29 11:15:43 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/11/30 11:52:37 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	write_error_exit(void)
 {
-	write (1, "Error\n", 1);
+	write (1, "Error\n", 6);
 	exit (-1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:04:24 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/12 16:32:01 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/10/22 08:19:12 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include "../libft/libft.h"
 
 char	*ft_itoa(int n);
 int		ft_putnbr(int n);
