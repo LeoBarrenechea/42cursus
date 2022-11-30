@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 13:53:12 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/10/12 16:33:55 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/10/12 16:49:43 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ int	ft_parameter(va_list arg, char c)
 		len += print_hex(va_arg(arg, unsigned int), c);
 	else if (c == 'u')
 		len += ft_putnbr_unsig(va_arg(arg, unsigned int));
-	else if (c == '%')
+	else
+	{
+		if (c == '%')
 		len += ft_putchar('%');
+	}
 	return (len);
 }
 
