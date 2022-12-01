@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 14:13:22 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/30 16:00:55 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:31:32 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ int		ft_atoi(char *str, t_head *ptr);
 char	**ft_split(char const *s, char c, t_head *peek);
 
 /*push_swap functions*/
+int		ft_strlen(const char *arg);
 void	arg_str(char **av, t_head *peek);
+void check_insert(char *av, t_head *peek);
 void	free_str_list_exit(t_head *list, char **str, int len);
 
 /*struct functions*/
@@ -50,6 +52,6 @@ void	ft_r_rotate(t_head *list, int num);
 void	ft_push(t_head *from, t_head *to, int num);
 void	ft_insertend(t_head *list, int arg);
 void	ft_insertinit(t_list *list, int arg);
-void	check_dup(t_head *list, char **av, int num);
+void	check_dup(t_head *list, int num, char **str);
 
 #endif

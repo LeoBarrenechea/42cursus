@@ -6,12 +6,12 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 11:33:52 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/30 16:00:36 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:32:22 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/* 
+
 int	ft_strlen(const char *arg)
 {
 	int	size;
@@ -22,7 +22,7 @@ int	ft_strlen(const char *arg)
 	while (arg[size])
 		size++;
 	return (size);
-} */
+}
 
 int	ft_atoi(char *str, t_head *ptr)
 {
@@ -43,11 +43,10 @@ int	ft_atoi(char *str, t_head *ptr)
 	}
 	while ((str[i] <= '9' && '0' <= str[i]) || str[i] == 32)
 	{
-		if (!(str[i] == 32))
-			num = (num * 10) + str[i] - 48;
+		num = (num * 10) + str[i] - 48;
 		i++;
 	}
-	if ((num * sign) <= INT_MIN || INT_MAX <= num)
+	if ((num * sign) <= INT_MIN || INT_MAX <= (num * sign))
 		free_str_list_exit(ptr, 0, 0);
 	return (num * sign);
 }
