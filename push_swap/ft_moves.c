@@ -6,18 +6,18 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:09:36 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/30 16:00:41 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/02 17:44:01 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_head *from, t_head *to, int num)
+/* void	ft_push(t_head *from, t_head *to, int num)
 {
 	t_list	*aux;
 
 	if (!from)
-		return (0);
+		return ((void)0);
 	aux = from->peek->next;
 	from->peek->next = to->peek;
 	to->peek = from->peek;
@@ -28,16 +28,15 @@ void	ft_push(t_head *from, t_head *to, int num)
 		write (1, "pb\n", 3);
 	else if (num == 0)
 		write (1, "pa\n", 3);
-}
+} */
 
-void	ft_r_rotate(t_head *list, int num)
+/* void	ft_r_rotate(t_head *list, int num)
 {
-	t_list	*holder;
 	t_list	*aux;
 
 	if (list->peek->next)
 	{
-		aux = list;
+		aux = list->peek;
 		while (aux->next->next)
 			aux = aux->next;
 		aux->next->next = list->peek;
@@ -50,22 +49,20 @@ void	ft_r_rotate(t_head *list, int num)
 		else if (num == 2)
 			write (1, "rrr\n", 4);
 	}
-}
+} */
 
-void	ft_rotate(t_head *list, int num)
+/* void	ft_rotate(t_head *list, int num)
 {
 	t_list	*aux;
-	t_list	*aux1;
 
 	if (list->peek->next)
 	{
 		aux = list->peek;
-		aux1 = list->peek->next;
-		list->peek = aux;
-		while (aux->next)
-			aux = aux->next;
-		aux->next = aux1;
-		aux->next->next = NULL;
+		while (list->peek->next)
+			list->peek = list->peek->next;
+		list->peek->next = aux;
+		list->peek = aux->next;
+		aux->next = NULL;
 		if (num == 0)
 			write (1, "ra\n", 3);
 		else if (num == 1)
@@ -73,12 +70,11 @@ void	ft_rotate(t_head *list, int num)
 		else if (num == 2)
 			write (1, "rr\n", 3);
 	}
-}
+} */
 
-void	ft_swap(t_head *peek, int num)
+/* void	ft_swap(t_head *peek, int num)
 {
 	t_list	*aux;
-	t_list	*aux1;
 
 	{
 		aux = peek->peek->next;
@@ -113,26 +109,27 @@ t_list	*ft_insertend(t_list **head, int arg)
 	free(new);
 	new = NULL;
 	return (head);
-}
-
-/* int main(void)
-{
-	t_list	**peek;
-	int		i;
-
-	i = 0;
-	int a[] = {50, 40, 29, 18};
-	while (i <= 3)
-	{
-		*peek = ft_insertend(peek, a[i]);
-		i++;
-	}
-	i = 0;
-	ft_r_rotate(*peek);
-	while ((*peek)->next)
-	{
-		printf("[%i]  |  %d\n", i, (*peek)->num);
-		(*peek) = (*peek)->next;
-		i++;
-	}
 } */
+
+int	main(int ac, char **av)
+{
+	t_head	*list_a;
+	t_list	*list;
+
+	list_a = ft_full_list(ac, av);
+	printf("***list A***\n\n");
+	list = list_a->peek;
+	while (list)
+	{
+		printf("[%i]  |  [%d]\n", list_a->len, list->num);
+		list = list->next;
+	}
+	printf("\n***list A rotate***\n\n");
+	ft_rotate(list_a, 3);
+	while (list_a->peek)
+	{
+		printf("[%i]  |  [%d]\n", list_a->len, list_a->peek->num);
+		list_a->peek = list_a->peek->next;
+	}
+	free_str_list_exit(list_a, 0, 1);
+}

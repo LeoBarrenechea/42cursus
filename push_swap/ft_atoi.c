@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 11:33:52 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/01 15:32:22 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/02 13:24:56 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_atoi(char *str, t_head *ptr)
 	i = 0;
 	while ((str[i] <= 13 && 9 <= str[i]) || (str[i] == 32))
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if ((str[i] == '-' || str[i] == '+') && (str[i + 1] != 48))
 	{
 		if (str[i] == '-')
 			sign *= -1;

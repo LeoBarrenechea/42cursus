@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 11:02:04 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/01 15:31:54 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/02 13:25:19 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ void	free_str_list_exit(t_head *list, char **str, int len)
 	{
 		i = 0;
 		while (str[i])
-		{
-			free (str[i]);
-			i++;
-		}
+			free (str[i++]);
 		free (str);
 	}
 	if (list)
@@ -42,6 +39,7 @@ void	free_str_list_exit(t_head *list, char **str, int len)
 			free (del);
 		}
 		free (list);
+		list = NULL;
 	}
 	if (len == 0)
 		write_error_exit();
