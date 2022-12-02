@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:09:36 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/02 17:44:01 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/02 17:46:58 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,27 +89,6 @@
 	else if (num == 2)
 		write (1, "ss\n", 3);
 }
-
-t_list	*ft_insertend(t_list **head, int arg)
-{
-	t_list	*new;
-	t_list	*aux;
-
-	new = ft_addnew(arg);
-	if (*head == NULL)
-		*head = new;
-	else
-	{
-		aux = *head;
-		while (aux->next)
-			aux = aux->next;
-		aux->next = new;
-	}
-	*head = aux;
-	free(new);
-	new = NULL;
-	return (head);
-} */
 
 int	main(int ac, char **av)
 {
