@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:00:31 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/11/30 16:01:00 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/06 16:44:31 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,21 @@ t_head	*ft_addhead(void)
 	peek->peek = NULL;
 	peek->len = 0;
 	return (peek);
+}
+
+void	higher_num(t_head *list)
+{
+	t_list	*aux;
+	int		hold;
+
+	aux = list->peek;
+	hold = 0;
+	while (aux->next)
+	{
+		if (aux->num > aux->next->num)
+		{	
+			hold = aux->num;
+			if (hold && hold < aux->num)
+		}
+	}
 }
