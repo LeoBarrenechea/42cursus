@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:28:27 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/06 15:01:45 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:30:13 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,29 @@ t_head	*ft_full_list(int ac, char **av)
 	}
 	else if (2 == ac && *++av)
 		check_insert(*av, peek);
-	check_sort(peek);
+	if (!check_sort(peek))
+		exit (-1);
 	return (peek);
 }
 
 int	main(int ac, char **av)
 {
-	t_head	*peek;
+	t_head	*list_a;
 	int		i;
 	t_list	*aux;
+	t_head	*list_b;
 
-	peek = ft_full_list(ac, av);
-	aux = peek->peek;
-	i = 0;
-	alg_of_3(peek);
-/* 	while (peek->peek)
+	list_a = ft_full_list(ac, av);
+	list_b = ft_addhead();
+	i = 1;
+	alg_of_5(list_a, list_b);
+	aux = list_a->peek;
+	while (aux)
 	{
-		printf("[%i]  |  [%d]\n", i, peek->peek->num);
-		peek->peek = peek->peek->next;
+		printf("A->[%i]  |  [%d]\n", i, aux->num);
+		aux = aux->next;
 		i++;
-	} */
-	free_str_list_exit(peek, 0, 1);
+	}
+	free_str_list_exit(list_a, 0, 1);
+	free_str_list_exit(list_b, 0, 1);
 }

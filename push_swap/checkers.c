@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_errors.c                                     :+:      :+:    :+:   */
+/*   checkers.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 11:22:15 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/06 13:12:49 by lbarrene         ###   ########.fr       */
+/*   Created: 2022/12/07 17:10:10 by lbarrene          #+#    #+#             */
+/*   Updated: 2022/12/07 18:30:29 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,20 @@ int	check_sort(t_head *peek)
 		aux = aux->next;
 	}
 	free_str_list_exit(peek, 0, 1);
-	exit (-1);
 	return (0);
+}
+
+void	check_position(t_head *list, t_list *num)
+{
+	t_list	*aux;
+
+	aux = list->peek;
+	list->pos = 1;
+	while (aux)
+	{
+		if (aux->num == num->num)
+			break ;
+		list->pos++;
+		aux = aux->next;
+	}
 }

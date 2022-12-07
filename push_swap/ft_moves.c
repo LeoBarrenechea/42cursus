@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:09:36 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/06 14:46:35 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:29:09 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_push(t_head *from, t_head *to, int num)
 		write (1, "pb\n", 3);
 	else if (num == 0)
 		write (1, "pa\n", 3);
+	higher_num(from);
+	higher_num(to);
 }
 
 void	ft_r_rotate(t_head *list, int num)
