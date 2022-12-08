@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:00:31 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/07 18:12:22 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/08 17:24:47 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	ft_insertend(t_head *head, int arg)
 			aux = aux->next;
 		aux->next = new;
 	}
-	higher_num(head);
+	higher_min_num(head);
+	head->lstnum = new;
 	head->len++;
 }
 
@@ -56,7 +57,7 @@ t_head	*ft_addhead(void)
 	return (peek);
 }
 
-void	higher_num(t_head *list)
+void	higher_min_num(t_head *list)
 {
 	t_list	*aux;
 
@@ -73,20 +74,12 @@ void	higher_num(t_head *list)
 	}
 }
 
-void	first_pos_moves(t_head *list, int pos)
+void	ptr_lst_num(t_head *list)
 {
-	if (pos == 2)
-		ft_swap(list, 0);
-	else if (pos == 3)
-	{
-		ft_rotate(list, 0);
-		ft_swap(list, 0);
-	}
-	else if (4 <= list->len)
-	{
-		if ((pos == 4 && list->len == 4) || (pos == 4 && list->len == 5))
-			ft_r_rotate(list, 0);
-		if (list->len == 5)
-			ft_r_rotate(list, 0);
-	}
+	t_list	*aux;
+
+	aux = list->peek;
+	while (aux)
+		aux = aux->next;
+	list->lstnum = aux;
 }
