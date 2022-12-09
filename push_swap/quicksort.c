@@ -6,46 +6,68 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 12:42:15 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/08 18:16:03 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/09 14:26:25 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	split_from_pivot(t_head *pivot, t_head *to, t_list *peek, int num)
+int	split_from_pivota(t_head *list_a, t_head *list_b, int num)
 {
+	t_list	*aux;
+	int		pivot;
 
-	while (pivot)
+	aux = list_a->peek;
+	pivot = list_a->lstnum->num;
+	while (list_a->peek && num == 0)
 	{
-		if (pivot->peek->num < peek->num)
-		{
-			ft_swap(pivot, num);
-			ft_push(pivot, to, num);
-		}
-		if (pivot->peek->num < pivot->lstnum->num)
-		{
-			ft_r_rotate(pivot, num);
-			ft_push(pivot, to, num);
-		}
-		else
-		{
-			ft_swap(pivot, num);
-			ft_rotate(pivot, num);
-		}
+		if (pivot > list_a->peek->num)
+			ft_push(list_a, list_b, num);
+		else if (pivot < list_a->peek->num)
+			ft_rotate(list_a, num);
+		else if (list_a->peek->num == pivot)
+			break ;
 	}
+	return (pivot);
 }
 
-/* void	move_pivot(t_head *list_a)
+int	split_from_pivotb(t_head *list_b, t_head *list_a, int num)
 {
-	if (list_a->posmin < (list_a->len / 2))
+	t_list	*aux;
+	int		pivot;
+
+	aux = list_b->peek;
+	pivot = list_b->lstnum->num;
+	while (list_b->peek && num == 1)
 	{
-		while (list_a->posmin != 1)
-		{
-			
-		}
+		if (pivot < list_b->peek->num)
+			ft_push(list_b, list_a, num);
+		else if (pivot > list_b->peek->num)
+			ft_rotate(list_b, num);
+		else if (list_b->peek->num == pivot)
+			break ;
 	}
+	return (pivot);
 }
 
-void	alg_sort(t_head *list_a, t_head *list_b)
+int	sort_list(t_head *from, t_head *to, int num)
+{
+	int	pivot;
+
+	pivot = 0;
+	if (from->len > 1 && num == 0)
+	{
+		while (from->len > 5)
+			pivot = split_from_pivota(from, to, num);
+		if (from->len <= 5)
+			alg_of_5(from, to, num);
+	}
+	if (from->len > 1 && num == 1)
+		while (from->len > 5)
+			pivot = split_from_pivotb(from, to, num);
+	return (pivot);
+}
+
+/* void	alg_sort(t_head *list_a, t_head *list_b)
 {
 } */

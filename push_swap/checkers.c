@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:10:10 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/08 16:07:33 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/09 12:54:55 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	check_insert(char *av, t_head *peek)
 		ft_insertend(peek, num);
 		i++;
 	}
-	check_position(peek, peek->min, peek->high);
+	check_position(peek, peek->min);
 	free_str_list_exit(0, str, 1);
 }
 
@@ -61,7 +61,7 @@ int	check_sort(t_head *peek)
 	return (0);
 }
 
-void	check_position(t_head *list, t_list *min, t_list *high)
+void	check_position(t_head *list, t_list *min)
 {
 	t_list	*aux;
 	int		pos;
@@ -74,15 +74,10 @@ void	check_position(t_head *list, t_list *min, t_list *high)
 		{
 			if (aux->num == min->num)
 				list->posmin = pos;
-			if (aux->num == high->num)
-				list->poshigh = pos;
 			aux = aux->next;
 			pos++;
 		}
 	}
 	else
-	{
 		list->posmin = 0;
-		list->poshigh = 0;
-	}
 }
