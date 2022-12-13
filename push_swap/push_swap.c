@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:28:27 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/09 14:27:40 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:56:08 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,24 @@ int	main(int ac, char **av)
 	int		i;
 	t_list	*aux;
 	t_head	*list_b;
-	int		pivot;
 	t_list	*aux1;
 
 	list_a = ft_full_list(ac, av);
 	list_b = ft_addhead();
 	i = 1;
-	if (check_sort(list_a) == 1)
+	while (list_a->high->num != list_a->lstnum->num)
 	{
-		pivot = sort_list(list_a, list_b, 0);
-		pivot = sort_list(list_b, list_a, 1);
+		split_list_a(list_a, list_b, 0);
+		if (list_a->len == 5)
+			alg_of_5(list_a, list_b, 0);
 	}
+	while (1 <= list_b->len)
+	{
+		split_list_b(list_b, list_a, 1);
+	}
+	alg_sort_a(list_a, list_b, 0);
+	alg_sort_b(list_b, list_a, 1);
+
 	aux = list_a->peek;
 	if (list_b)
 		aux1 = list_b->peek;
@@ -59,6 +66,7 @@ int	main(int ac, char **av)
 		i++;
 	}
 	printf("*******************\n");
+	i = 1;
 	while (aux1)
 	{
 		printf("B->[%i]  |  [%d]\n", i, aux1->num);

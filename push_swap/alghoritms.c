@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:04:44 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/09 14:06:20 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/13 11:04:26 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,7 @@ void	alg_of_5(t_head *from, t_head *to, int num)
 	from->pushcount = 0;
 	while (4 <= from->len)
 	{
-		if (from->posmin != 1 && from->len <= 4)
-			first_pos_moves(from, from->posmin, num);
+		first_pos_moves(from, from->posmin, num);
 		ft_push(from, to, num);
 		from->pushcount++;
 	}
@@ -77,12 +76,7 @@ void	alg_of_5(t_head *from, t_head *to, int num)
 			num = 1;
 		else if (num == 1)
 			num = 0;
-		if (from->pushcount >= 2)
-		{
-			ft_push(to, from, num);
-			from->pushcount--;
-		}
-		if (from->pushcount == 1)
+		while (from->pushcount != 0)
 		{
 			ft_push(to, from, num);
 			from->pushcount--;

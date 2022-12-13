@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:10:10 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/09 12:54:55 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/13 15:51:04 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,20 @@ int	check_sort(t_head *peek)
 	while (aux->next)
 	{
 		if (aux->num > aux->next->num)
+			return (1);
+		aux = aux->next;
+	}
+	return (0);
+}
+
+int	reverse_check_sort(t_head *peek)
+{
+	t_list	*aux;
+
+	aux = peek->peek;
+	while (aux->next)
+	{
+		if (aux->num < aux->next->num)
 			return (1);
 		aux = aux->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:00:31 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/09 13:43:40 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:19:03 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,11 @@ void	ptr_lst_num(t_head *list)
 {
 	t_list	*aux;
 
-	aux = list->peek;
-	while (aux->next)
-		aux = aux->next;
-	list->lstnum = aux;
+	if (list->peek != NULL)
+	{
+		aux = list->peek;
+		while (aux->next)
+			aux = aux->next;
+		list->lstnum = aux;
+	}
 }

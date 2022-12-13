@@ -6,68 +6,77 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 12:42:15 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/09 14:26:25 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:50:58 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	split_from_pivota(t_head *list_a, t_head *list_b, int num)
+/*separa la lista a en base a un pivot*/
+void	split_list_a(t_head *list_a, t_head *list_b, int num)
 {
-	t_list	*aux;
 	int		pivot;
 
-	aux = list_a->peek;
 	pivot = list_a->lstnum->num;
-	while (list_a->peek && num == 0)
+	while (list_a->peek && !(list_a->peek->num == pivot))
 	{
 		if (pivot > list_a->peek->num)
 			ft_push(list_a, list_b, num);
 		else if (pivot < list_a->peek->num)
 			ft_rotate(list_a, num);
-		else if (list_a->peek->num == pivot)
-			break ;
 	}
-	return (pivot);
 }
 
-int	split_from_pivotb(t_head *list_b, t_head *list_a, int num)
+/*separa la lista b en base a un pivot*/
+void	split_list_b(t_head *list_b, t_head *list_a, int num)
 {
-	t_list	*aux;
 	int		pivot;
 
-	aux = list_b->peek;
 	pivot = list_b->lstnum->num;
-	while (list_b->peek && num == 1)
+	while (list_b->peek && !(list_b->peek->num == pivot))
 	{
 		if (pivot < list_b->peek->num)
 			ft_push(list_b, list_a, num);
 		else if (pivot > list_b->peek->num)
 			ft_rotate(list_b, num);
-		else if (list_b->peek->num == pivot)
-			break ;
 	}
-	return (pivot);
-}
-
-int	sort_list(t_head *from, t_head *to, int num)
-{
-	int	pivot;
-
-	pivot = 0;
-	if (from->len > 1 && num == 0)
+	if (!reverse_check_sort(list_b))
 	{
-		while (from->len > 5)
-			pivot = split_from_pivota(from, to, num);
-		if (from->len <= 5)
-			alg_of_5(from, to, num);
+		while (list_b->peek)
+			ft_push(list_b, list_a, num);
 	}
-	if (from->len > 1 && num == 1)
-		while (from->len > 5)
-			pivot = split_from_pivotb(from, to, num);
-	return (pivot);
 }
 
-/* void	alg_sort(t_head *list_a, t_head *list_b)
+void	alg_sort_a(t_head *list_a, t_head *list_b, int num)
 {
-} */
+	while (check_sort(list_a) == 1)
+	{
+		if (list_a->peek->num > list_a->lstnum->num)
+			ft_rotate(list_a, num);
+		else if (list_a->peek->num < list_a->peek->next->num)
+		{
+			ft_push(list_a, list_b, num);
+		}
+		else
+		{
+			ft_swap(list_a, num);
+			ft_push(list_a, list_b, num);
+		}
+	}
+}
+
+void	alg_sort_b(t_head *list_b, t_head *list_a, int num)
+{
+	while (list_b->peek && reverse_check_sort(list_a) == 1)
+	{
+		if (list_b->peek->num == list_b->high->num)
+			ft_push(list_b, list_a, num);
+		else if (list_b->lstnum->num == list_b->high->num)
+		{
+			ft_r_rotate(list_b, num);
+			ft_push(list_b, list_a, num);
+		}
+		else
+			ft_rotate(list_b, num);
+	}
+}
