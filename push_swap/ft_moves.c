@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:09:36 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/09 13:06:04 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/16 14:12:35 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	ft_push(t_head *from, t_head *to, int num)
 	higher_min_num(to);
 	ptr_lst_num(from);
 	ptr_lst_num(to);
-	check_position(from, from->min);
-	check_position(to, to->min);
+	check_position(from, from->min, from->high);
+	check_position(to, to->min, to->high);
 }
 
 void	ft_r_rotate(t_head *list, int num)
@@ -56,7 +56,7 @@ void	ft_r_rotate(t_head *list, int num)
 			write (1, "rrr\n", 4);
 	}
 	ptr_lst_num(list);
-	check_position(list, list->min);
+	check_position(list, list->min, list->high);
 }
 
 void	ft_rotate(t_head *list, int num)
@@ -79,7 +79,7 @@ void	ft_rotate(t_head *list, int num)
 			write (1, "rr\n", 3);
 	}
 	ptr_lst_num(list);
-	check_position(list, list->min);
+	check_position(list, list->min, list->high);
 }
 
 void	ft_swap(t_head *peek, int num)
@@ -100,7 +100,7 @@ void	ft_swap(t_head *peek, int num)
 	else if (num == 2)
 		write (1, "ss\n", 3);
 	ptr_lst_num(peek);
-	check_position(peek, peek->min);
+	check_position(peek, peek->min, peek->high);
 }
 
 /* int	main(int ac, char **av)

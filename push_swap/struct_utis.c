@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:00:31 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/13 16:19:03 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:34:22 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ft_insertend(t_head *head, int arg)
 		aux->next = new;
 	}
 	higher_min_num(head);
+	check_position(head, head->min, head->high);
 	head->lstnum = new;
 	head->len++;
 }
@@ -61,16 +62,19 @@ void	higher_min_num(t_head *list)
 {
 	t_list	*aux;
 
-	aux = list->peek;
-	list->high = aux;
-	list->min = aux;
-	while (aux)
-	{
-		if (aux->num > list->high->num)
-			list->high = aux;
-		else if (aux->num < list->min->num)
-			list->min = aux;
-		aux = aux->next;
+	if (list->peek)
+	{	
+		aux = list->peek;
+		list->min = aux;
+		list->high = aux;
+		while (aux)
+		{
+			if (aux->num > list->high->num)
+				list->high = aux;
+			if (aux->num < list->min->num)
+				list->min = aux;
+			aux = aux->next;
+		}
 	}
 }
 
@@ -78,11 +82,13 @@ void	ptr_lst_num(t_head *list)
 {
 	t_list	*aux;
 
-	if (list->peek != NULL)
+	if (list->peek)
 	{
 		aux = list->peek;
 		while (aux->next)
 			aux = aux->next;
 		list->lstnum = aux;
 	}
+	else
+		list->lstnum = NULL;
 }

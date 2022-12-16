@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:10:10 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/13 15:51:04 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:41:03 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	check_insert(char *av, t_head *peek)
 		ft_insertend(peek, num);
 		i++;
 	}
-	check_position(peek, peek->min);
+	check_position(peek, peek->min, peek->high);
 	free_str_list_exit(0, str, 1);
 }
 
@@ -65,33 +65,41 @@ int	reverse_check_sort(t_head *peek)
 {
 	t_list	*aux;
 
-	aux = peek->peek;
-	while (aux->next)
+	if (peek->peek)
 	{
-		if (aux->num < aux->next->num)
-			return (1);
-		aux = aux->next;
+		aux = peek->peek;
+		while (aux->next)
+		{
+			if (aux->num < aux->next->num)
+				return (1);
+			aux = aux->next;
+		}
 	}
 	return (0);
 }
 
-void	check_position(t_head *list, t_list *min)
+void	check_position(t_head *list, t_list *min, t_list *high)
 {
 	t_list	*aux;
 	int		pos;
 
-	aux = list->peek;
-	pos = 1;
 	if (list->peek)
 	{
+		aux = list->peek;
+		pos = 1;
 		while (aux)
 		{
 			if (aux->num == min->num)
 				list->posmin = pos;
+			else if (aux->num == high->num)
+				list->poshigh = pos;
 			aux = aux->next;
 			pos++;
 		}
 	}
 	else
+	{
 		list->posmin = 0;
+		list->poshigh = 0;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 14:13:22 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/13 15:51:37 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/14 14:06:26 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_head
 	t_list		*min;
 	t_list		*lstnum;
 	int			posmin;
+	int			poshigh;
 	int			pushcount;
 	int			len;
 }			t_head;
@@ -48,7 +49,8 @@ void	arg_str(char **av, t_head *peek);
 t_head	*ft_full_list(int ac, char **av);
 void	alg_of_3(t_head *list_a, int num);
 void	check_insert(char *av, t_head *peek);
-void	check_position(t_head *list, t_list *min);
+void	both_moves(t_head *list_a, t_head *list_b);
+void	sort_function(t_head *list_a, t_head *list_b);
 void	first_pos_moves(t_head *list, int pos, int num);
 void	alg_of_5(t_head *list_a, t_head *list_b, int num);
 void	alg_sort_a(t_head *list_a, t_head *list_b, int num);
@@ -56,6 +58,7 @@ void	alg_sort_b(t_head *list_b, t_head *list_a, int num);
 void	free_str_list_exit(t_head *list, char **str, int len);
 void	split_list_a(t_head *list_a, t_head *list_b, int num);
 void	split_list_b(t_head *list_a, t_head *list_b, int num);
+void	check_position(t_head *list, t_list *min, t_list *high);
 
 /*struct functions*/
 t_head	*ft_addhead(void);

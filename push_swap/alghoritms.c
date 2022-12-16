@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:04:44 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/13 11:04:26 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/16 14:58:58 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,11 @@ void	alg_of_5(t_head *from, t_head *to, int num)
 	}
 	if (from->len <= 3)
 		alg_of_3(from, num);
-	if (3 <= from->len)
+	if (3 == from->len)
 	{
-		if (num == 0)
-			num = 1;
-		else if (num == 1)
-			num = 0;
 		while (from->pushcount != 0)
 		{
-			ft_push(to, from, num);
+			ft_push(to, from, 1);
 			from->pushcount--;
 		}
 	}
