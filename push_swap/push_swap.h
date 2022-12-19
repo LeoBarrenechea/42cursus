@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 14:13:22 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/14 14:06:26 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/19 14:32:04 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	first_pos_moves(t_head *list, int pos, int num);
 void	alg_of_5(t_head *list_a, t_head *list_b, int num);
 void	alg_sort_a(t_head *list_a, t_head *list_b, int num);
 void	alg_sort_b(t_head *list_b, t_head *list_a, int num);
+int		split_list_b(t_head *list_b, t_head *list_a, int num);
 void	free_str_list_exit(t_head *list, char **str, int len);
-void	split_list_a(t_head *list_a, t_head *list_b, int num);
-void	split_list_b(t_head *list_a, t_head *list_b, int num);
+int		split_list_a(t_head *list_a, t_head *list_b, int num);
 void	check_position(t_head *list, t_list *min, t_list *high);
 
 /*struct functions*/

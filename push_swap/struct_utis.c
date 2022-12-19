@@ -6,7 +6,7 @@
 /*   By: lbarrene <lbarrene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:00:31 by lbarrene          #+#    #+#             */
-/*   Updated: 2022/12/16 15:34:22 by lbarrene         ###   ########.fr       */
+/*   Updated: 2022/12/19 12:27:04 by lbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	higher_min_num(t_head *list)
 		{
 			if (aux->num > list->high->num)
 				list->high = aux;
-			if (aux->num < list->min->num)
+			else if (aux->num < list->min->num)
 				list->min = aux;
 			aux = aux->next;
 		}
